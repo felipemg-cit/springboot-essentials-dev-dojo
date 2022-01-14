@@ -1,7 +1,12 @@
 package academy.devdojo.springboot2essentials.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Anime {
+  @JsonProperty("id")
   private Long id;
+
+  @JsonProperty("name")
   private String name;
 
   public Anime(Long id, String name) {
