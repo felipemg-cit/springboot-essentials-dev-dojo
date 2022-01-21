@@ -1,6 +1,7 @@
 package academy.devdojo.springboot2essentials.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -41,5 +42,27 @@ public class Anime {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  @Override
+  public String toString() {
+    return "Anime{" + "id=" + id + ", name='" + name + '\'' + '}';
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    Anime anime = (Anime) o;
+    return Objects.equals(id, anime.id) && Objects.equals(name, anime.name);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, name);
   }
 }
